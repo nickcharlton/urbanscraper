@@ -3,19 +3,46 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Jacks' index.html</title>
+		<title>UrbanScraper &mdash; an API for Urban Dictionary</title>
 		
 		<!-- styles -->
-		<link rel="stylesheet/less" href="css/main.less">
+		<link rel="stylesheet/less" href="../public/stylesheets/main.less">
 		
 		<!-- javascript -->
-		<script src="js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/less.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../public/javascript/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../public/javascript/less.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	
 	<body>
 		<div id="page">
-			
+		    <h1>UrbanScraper <span class="smallcaps">an API for Urban Dictionary</span></h1>
+
+            <p>UrbanScraper implements a simple API for accessing <a href="http://urbandictionary.com/">Urban Dictionary</a>. <a href="http://nickcharlton.net/">Nick Charlton</a> built this to get definitions through <a href="http://alfredapp.com">Alfred</a>.</p>
+
+            <p><em>Note: This was built because Urban Dictionary don't have their own API. To make it work, this relies on screen scraping. If you don't get a result when you should, something has probably changed. <a href="http://nickcharlton.net/">Shout at me</a>.</em></p>
+
+            <h2>Methods</h2>
+            <p>The possible methods are below. Currently you can only get the first definition of a word.</p>
+
+            <h3>Route</h3>
+            <p><code>GET /definition/term.json</code></p>
+
+            <h3>Response</h3>
+
+            <p><code><pre>
+{
+    status: 200,
+    word: term,
+    definition: definition,
+    url: 'http://urbandictionary.com/define.php?term'
+}           </pre></code></p>
+
+            <h2>Usage/Copyright/License</h2>
+
+            <p>The code is up on GitHub. It's MIT licensed.</p>
+            
+            <p>The content is owned by those who submitted it to Urban Dictionary. Using this (presumably) puts you under the <a href="http://www.urbandictionary.com/tos.php">Urban Dictionary Terms of Service</a>.</p>
+            <p>A little bit of caching is done on my side to keep the hits to Urrban Dictionary down, but even then, please don't abuse it. They probably wouldn't like it.</p>
 		</div>
 	</body>
 	
