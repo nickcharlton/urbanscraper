@@ -1,0 +1,147 @@
+/*
+	This is Jacks. A library to help you start (responsive) web projects.
+	
+	Certain mixins come from Elements, by Dmitry Fadeyev. You should check them out, there are many more: http://lesselements.com/
+*/
+
+/* Mixins */
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+  background: @color;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, @start), color-stop(1, @stop));
+  background: -ms-linear-gradient(bottom, @start, @stop);
+  background: -moz-linear-gradient(center bottom, @start 0%, @stop 100%);
+}
+
+.bordered(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
+  border-top: solid 1px @top-color;
+  border-left: solid 1px @left-color;
+  border-right: solid 1px @right-color;
+  border-bottom: solid 1px @bottom-color;
+}
+
+.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
+  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+
+.rounded(@radius: 2px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+}
+
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -webkit-border-top-left-radius: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  border-top-left-radius: @topleft;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+}
+
+.opacity(@opacity: 0.5) {
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  -webkit-opacity: @opacity;
+  opacity: @opacity;
+}
+
+.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+.box-shadow(@arguments) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+/* Typography Presets */
+body {
+    font: normal 100% Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 1.5em; /* line-height is relative to the font-size, it appears. */
+}
+
+h1, h2, h3, h4 {
+    font-family: Garamond, Hoefler Text, Times New Roman, Times, serif;
+    line-height: 1.5em; /* line-height is relative to the font-size, it appears. */
+    margin: 0.5208333%; /* 5px /  960px */
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3em; /* 48px / 16px */
+}
+
+h2 {
+    font-size: 2.25em; /* 36px / 16px */
+}
+
+h3 {
+    font-size: 1.5em; /* 24px / 16px */
+}
+
+h4 {
+    font-size: 1em; /* 16px / 16px */
+}
+
+pre, code {
+    font-family: Monaco, Consolas, Lucida Console, monospace
+}
+
+p {
+    font-size: 1em; /* 16px / 16px */
+    line-height: 1.25em;
+    margin: 0.5208333%; /* 5px /  960px */
+}
+
+em, i {
+    font-style: italic;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+small {
+    font-size: 0.75em; /* 14px / 16px */
+}
+
+ul {
+    list-style-type: disc;
+    margin: 0.5208333%; /* 5px /  960px */
+}
+
+ol {
+    list-style-type: decimal;
+    margin: 0.5208333%; /* 5px /  960px */
+}
+
+li {
+    
+}
+
+img, embed, object, video {
+    max-width: 100%;
+}
+
+hr {
+    color: #000000;
+	background: #000000;
+	border: 0;
+	height: 1px;
+	margin: 1.0416667% 0 1.0416667% 0; /* 10px / 960px */
+}
+
+::selection 	 {background: #e6e9eb;}
+::-moz-selection {background: #e6e9eb;}
