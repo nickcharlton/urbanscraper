@@ -2,7 +2,7 @@
 
 Wouldn't it be awesome to be able to access Urban Dictionary definitions from a script? Well, this is what this project is for.
 
-Not interested in the code? Go to [http://urbanscraper.heroku.com]!
+Not interested in the code? Go to http://urbanscraper.heroku.com!
 
 ## History
 
@@ -16,10 +16,7 @@ So, this is exactly what UrbanScraper does. It scrapes the definitions (on deman
 
 This is a Sinatra app (so, Ruby), designed to be hosted on Heroku. This is the same version currently running, so you can too push up your own instance.
 
-It depends upon:
-
-* Sinatra 1.0+
-* REXML 3.1.7.3+
+But: Don't think of this as a good way to implement anything it implements. It was hacked together over two evenings after work.
 
 ## License
 
