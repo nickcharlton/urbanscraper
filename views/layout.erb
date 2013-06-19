@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>UrbanScraper &mdash; an API for Urban Dictionary</title>
+  <head>
+    <meta charset="utf-8">
+	<title>UrbanScraper &mdash; an API for Urban Dictionary</title>
 		
-		<!-- styles -->
-		<link rel="stylesheet/less" href="/stylesheets/main.less">
+	<!-- styles -->
+	<link rel="stylesheet/less" href="/stylesheets/main.less">
 		
-		<!-- javascript -->
-		<script src="/javascript/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/javascript/less.js" type="text/javascript" charset="utf-8"></script>
-	</head>
+	<!-- javascript -->
+	<script src="/javascript/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascript/less.js" type="text/javascript" charset="utf-8"></script>
+  </head>
 	
-	<body>
-		<div id="page">
-		    <h1>UrbanScraper <span class="smallcaps">an API for Urban Dictionary</span></h1>
+  <body>
+    <div id="page">
+	<h1>UrbanScraper <span class="smallcaps">an API for Urban Dictionary</span></h1>
 
-            <p>UrbanScraper implements a simple API for accessing <a href="http://urbandictionary.com/">Urban Dictionary</a>. <a href="http://nickcharlton.net/">Nick Charlton</a> built this to get definitions through <a href="http://alfredapp.com">Alfred</a>.</p>
+    <p>UrbanScraper implements a simple API for accessing 
+       <a href="http://urbandictionary.com/">Urban Dictionary</a>. 
+       <a href="http://nickcharlton.net/">Nick Charlton</a> built this to get 
+       definitions through <a href="http://alfredapp.com">Alfred</a>.</p>
 
-            <p><em>Note: This was built because Urban Dictionary don't have their own API. To make it work, this relies on screen scraping. If you don't get a result when you should, something has probably changed. <a href="http://nickcharlton.net/">Shout at me</a>.</em></p>
+    <p><em>Note: This was built because Urban Dictionary don't have their own API. 
+       To make it work, this relies on screen scraping. If you don't get a result 
+       when you should, something has probably changed. 
+       <a href="http://nickcharlton.net/">Shout at me</a>.</em></p>
 
-            <h2>Methods</h2>
-            <p>The possible methods are below. Currently you can only get the first definition of a word.</p>
+    <h2>Methods</h2>
+    <p>The possible methods are below. Currently you can only get the first 
+       definition of a word.</p>
 
-            <h3>Route</h3>
-            <p><code>GET /define/term.json</code></p>
+    <h3>Route</h3>
+    <p><code>GET /define/term.json</code></p>
 
-            <h3>Response</h3>
+    <h3>Response</h3>
 
-            <p><code><pre>
+    <p><code><pre>
 {
    "timestamp":1319831727,
    "example":"\"zOMG! you r teh winz!!one!!eleven!\"",
@@ -40,31 +46,40 @@
 }
 </pre></code></p>
 
-            <h3>Description</h3>
+    <h3>Description</h3>
 
-            <p>Returns the definition of a given term. Returns a status code of 404 if the term is invalid. The order of the JSON isn't guaranteed. The timestamp represents when it was last fetched.</p>
+    <p>Returns the definition of a given term. Returns a status code of 404 if the 
+       term is invalid. The order of the JSON isn't guaranteed. The timestamp 
+       represents when it was last fetched.</p>
 
-            <h2>Usage/Copyright/License</h2>
+    <h2>Usage/Copyright/License</h2>
 
-            <p>The code is up on <a href="http://github.com/nickcharlton/urbanscraper">GitHub</a>. It's MIT licensed. And, it's hosted on <a href="http://heroku.com/">Heroku</a></p>
+    <p>The code is up on <a href="http://github.com/nickcharlton/urbanscraper">
+       GitHub</a>. It's MIT licensed. And, it's hosted on 
+       <a href="http://heroku.com/">Heroku</a></p>
             
-            <p>The content is owned by those who submitted it to Urban Dictionary. Using this (presumably) puts you under the <a href="http://www.urbandictionary.com/tos.php">Urban Dictionary Terms of Service</a>.</p>
-            <p>A little bit of caching is done on my side to keep the hits to Urrban Dictionary down, but even then, please don't abuse it. They probably wouldn't like it.</p>
-		</div>
-	</body>
+    <p>The content is owned by those who submitted it to Urban Dictionary. Using 
+       this (presumably) puts you under the 
+       <a href="http://www.urbandictionary.com/tos.php">Urban Dictionary Terms of 
+       Service</a>.</p>
+    
+     <p>A little bit of caching is done on my side to keep the hits to Urrban 
+        Dictionary down, but even then, please don't abuse it. They probably 
+        wouldn't like it.</p>
 
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-775110-10']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '51c1e2a9613f5d7d34000101');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  </body>
 </html>
+
