@@ -1,25 +1,31 @@
-# UrbanScraper - an API wrapper for Urban Dictionary
+# UrbanScraper &mdash; screenscraping API for Urban Dictionary
 
-Wouldn't it be awesome to be able to access Urban Dictionary definitions from a script? Well, this is what this project is for.
+Wouldn't it be awesome to be able to access [Urban Dictionary][] definitions from a 
+script? Well, this is all about. This repo holds the code, but you can access the
+hosted version on Heroku: http://urbanscraper.herokuapp.com
 
-Not interested in the code? Go to http://urbanscraper.heroku.com!
+## History/Implementation
 
-## History
+This was originally written to provide the backend for an [Alfred][] extension that
+can look up definitions using Urban Dictionary.
 
-I have a terrible memory for abbreviations and acronyms. Especially those used in places like irc. I wanted to be able to find the definitions using Alfred (a keyboard launcher for OS X), but Urban Dictionary didn't have an API.
+When this was started, Urban Dictionary didn't have an API, so this was the solution
+to that. They did originally have some sort of API and since they've announced [this
+form to petition interest in a new one][form].
 
-Apparently, there used to be one (albeit, SOAP) and there are other ways to get data from Urban Dictionary (using the mobile interface), but that seemed worse than screen scraping did.
-
-So, this is exactly what UrbanScraper does. It scrapes the definitions (on demand) from Urban Dictionary and outputs simple JSON for you to use. It uses a mix of XPath and Regexes to acquire the data.
-
-## Implementation / Usage
-
-This is a Sinatra app (so, Ruby), designed to be hosted on Heroku. This is the same version currently running, so you can too push up your own instance.
-
-But: Don't think of this as a good way to implement anything it implements. It was hacked together over two evenings after work.
+This uses a combination of XPath and some regexes to screenscrape the site. It's
+implemented in Ruby using the Sinatra microframework.
 
 ## License
 
 Copyright Nick Charlton 2011. Code/Design Licensed under the MIT license.
 
-Content held under the [Urban Dictionary Terms of Service](http://www.urbandictionary.com/tos.php) and owned by those who submitted it. Whilst it's not mentioned, they probably wouldn't appreciate heavy scraping.
+The content you access is under the conditions of the Urban Dictionary's 
+[Terms of Service][tos] and owned by those who submitted it. Whilst it's not 
+mentioned, they probably wouldn't appreciate heavy scraping.
+
+[Urban Dictionary]: http://www.urbandictionary.com/
+[Alfred]: http://www.alfredapp.com
+[form]: http://urbandictionary.wufoo.com/forms/api-interest-form/
+[tos]: http://www.urbandictionary.com/tos.php
+
