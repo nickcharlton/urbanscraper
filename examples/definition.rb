@@ -5,14 +5,17 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'pp'
 
 # pull it into nokogiri
 doc = Nokogiri::HTML(open('http://www.urbandictionary.com/define.php?term=zomg'))
 
 # run the xpath
-result = doc.xpath("/html[1]/body[1]/div[3]/div[1]/table[1]/tr[1]/td[2]/div[1]/table[1]/tr[2]/td[2]/div[@class='definition']/node()")
+entries_block = doc.xpath("/html/body//table[@id='entries']")
+definition_group = entries_block.search("div[@class='definition']")
 
-definition = String.new
-result.each { |e| definition << e }
+definitions = Array.new
+definition_group.each { |e| definitions << e.to_str }
 
-p definition.class
+pp definitions
+
