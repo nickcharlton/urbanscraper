@@ -8,30 +8,18 @@ NoDef = Class.new(StandardError)
 
 # all of the methods used to parse the file
 helpers do
-  def get_definition(term)
+  def get_top_definition(term)
     # pull it into nokogiri
     doc = Nokogiri::HTML(open('http://www.urbandictionary.com/define.php?term=' + term))
- 
+    
     # run the xpath
-    result = doc.xpath("/html[1]/body[1]/div[3]/div[1]/table[1]/tr[1]/td[2]/div[1]/table[1]/tr[2]/td[2]/div[@class='definition']/node()")
- 
-    definition = String.new
-    result.each { |e| definition << e }
-  
-    definition
-  end
+    entries_block = doc.xpath("/html/body//table[@id='entries']")
+    definition_group = entries_block.search("div[@class='definition']")
+    
+    definitions = Array.new
+    definition_group.each { |e| definitions << e.to_str }
 
-  def get_example(term)
-    # pull it into nokogiri
-    doc = Nokogiri::HTML(open('http://www.urbandictionary.com/define.php?term=' + term))
-
-    # run the xpath
-    result = doc.xpath("/html[1]/body[1]/div[3]/div[1]/table[1]/tr[1]/td[2]/div[1]/table[1]/tr[2]/td[2]/div[@class='example']/node()")
-     
-    example = String.new
-    result.each { |e| example << e }
-
-    example
+    definitions[0]
   end
 end
 
@@ -47,12 +35,11 @@ get '/define/:term.json' do
     "url" => "http://www.urbandictionary.com/define.php?term=#{params[:term]}" # the url for the word
   ]
   
-  data[:definition] = get_definition(params[:term])
+  data[:definition] = get_top_definition(params[:term])
   
   if data[:definition].empty?
     raise NoDef
   end
-  data[:example] = get_example(params[:term])
 
   content_type :text
   data.to_json
