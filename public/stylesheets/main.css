@@ -9,11 +9,11 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-family: Helvetica, sans-serif;
+}
 
-    .smallcaps {
-        font-variant: small-caps;
-        font-size: 0.5em; /* 10px / 16px */
-    }
+h1.smallcaps {
+    font-variant: small-caps;
+    font-size: 0.5em; /* 10px / 16px */
 }
 
 h2, h3, h4, h5 {
