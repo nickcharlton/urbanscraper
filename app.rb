@@ -1,52 +1,34 @@
 require 'sinatra'
-require 'nokogiri'
-require 'open-uri'
+require 'redcarpet'
+require 'pygments'
 require 'json'
 
-require 'redcarpet'
-require 'pygments.rb'
+require_relative 'utils/markdown.rb'
+require_relative 'models/urbandictionary.rb'
 
-class HTMLwithPygments < Redcarpet::Render::HTML
-  include Redcarpet::Render::SmartyPants
-
-  def block_code(code, language)
-    if language.eql? 'headers'
-      options = {:cssclass => language}
-      language = ''
-    end
-
-    Pygments.highlight(code, :lexer => language, :options => options)
-  end
-end
-
-Tilt.register Tilt::RedcarpetTemplate::Redcarpet2, 'markdown', 'md'
-set :markdown, :renderer => HTMLwithPygments, :fenced_code_blocks => true, 
-                                              :layout_engine => :erb
+#
+# UrbanDictionary Global
+#
+ud = UrbanDictionary.new
 
 # some error handling for later
 NoDef = Class.new(StandardError)
 
-# all of the methods used to parse the file
-helpers do
-  def get_top_definition(term)
-    # pull it into nokogiri
-    doc = Nokogiri::HTML(open('http://www.urbandictionary.com/define.php?term=' + term))
-    
-    # run the xpath
-    entries_block = doc.xpath("/html/body//table[@id='entries']")
-    definition_group = entries_block.search("div[@class='definition']")
-    
-    definitions = Array.new
-    definition_group.each { |e| definitions << e.to_str }
+#
+# Routes
+#
 
-    definitions[0]
-  end
-end
 
+#
+# Documentation
+#
 get '/' do
   markdown :home
 end
 
+#
+# Get the Top Definition for a Term
+#
 get '/define/:term.json' do
   data = Hash[
     :word => params[:term], # term requested
@@ -55,7 +37,7 @@ get '/define/:term.json' do
     :url => "http://www.urbandictionary.com/define.php?term=#{params[:term]}" # the url for the word
   ]
   
-  data[:definition] = get_top_definition(params[:term])
+  data[:definition] = ud.get_top_definition(params[:term])
   
   if data[:definition].empty?
     raise NoDef
