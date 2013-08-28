@@ -7,6 +7,8 @@ require 'redcarpet'
 require 'pygments.rb'
 
 class HTMLwithPygments < Redcarpet::Render::HTML
+  include Redcarpet::Render::SmartyPants
+
   def block_code(code, language)
     if language.eql? 'headers'
       options = {:cssclass => language}
