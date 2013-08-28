@@ -1,44 +1,122 @@
 UrbanScraper implements a simple API for accessing [Urban Dictionary][]. [Nick 
 Charlton][] built this to get definitions through [Alfred][].
 
-_**Note:** This was built because Urban Dictionary don't have their own API. To make 
-it work, this relies on screen scraping. If you don't get a result when you should, 
-something has probably changed._ 
+_**Note:** This was built because Urban Dictionary doesn't have their own API. To 
+make it work, this relies on screen scraping. If you don't get a result when you 
+should, something has probably changed._ 
 
-## Methods
+## Routes
 
-The possible methods are below. Currently you can only get the first definition 
-of a word.
+### Get the Top Definition for a Term
 
-### Route
+Get the top definition for a specified term. `:term` should be encoded according to
+[RFC 3986][].
 
 ```
-GET /define/term.json
+GET /define/:term
 ```
 
-### Response
+#### Parameters
+
+* None.
+
+#### Response
 
 ```headers
 Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 99
 ```
 
 ```json
 {
-   "timestamp":1319831727,
-   "word":"zomg",
-   "url":"http://www.urbandictionary.com/define.php?term=zomg",
-   "definition":"zOMG is a varient of the all-too-popular acronym \"OMG\"",
-   "status":200
+   "id": "1319831727",
+   "word": "zomg",
+   "url": "http://www.urbandictionary.com/define.php?term=zomg",
+   "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\""
 }
 ```
 
-### Description
+### Search for Definitions
 
-Returns the definition of a given term. Returns a status code of 404 if the term is 
-invalid. The order of the JSON isn't guaranteed. The timestamp represents when it 
-was last fetched.
+Return a list of definitions of a term. `:term` should be encoded according to 
+[RFC 3986][].
+
+```
+GET /search/:term
+```
+
+#### Parameters
+
+* None.
+
+#### Response
+
+```headers
+Status: 200 OK
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 99
+```
+
+```json
+[{
+   "id": "1319831727",
+   "word": "zomg",
+   "url": "http://www.urbandictionary.com/define.php?term=zomg",
+   "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\""
+},
+{
+   "id": "1319831727",
+   "word": "zomg",
+   "url": "http://www.urbandictionary.com/define.php?term=zomg",
+   "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\""
+},
+...
+]
+```
+
+## Error Handling and Rate Limiting
+
+### 404: Not Found
+
+You'll most likely see this if the term you requested wasn't found at all. It'll
+look a bit like this:
+
+```headers
+Status: 404 Not Found
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 99
+```
+
+```json
+{
+    "message": "No definition could be found for that term."
+}
+```
+
+If you miss-call a route, you'll get a similar message.
+
+### 403: Forbidden (Rate Limit Exceeded)
+
+Access is limited in two ways. First, with an **hourly limit of 100 requests** as
+well as enforcing a **3-second interval between requests**. This is just so that
+UrbanScraper doesn't abuse Urban Dictionary too much. If you exceed your limit,
+you'll see:
+
+```headers
+Status: 403 Forbidden
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 0
+```
+
+```json
+{
+    "message": "API rate limit exceeded. Check the documentation."
+}
+```
+
+If you exceed the limit and you don't think you're abusing it, [contact me][contact].
+All requests count towards your rate limit, and it's a global setting.
 
 ## Usage/Copyright/License
 
@@ -53,6 +131,8 @@ down, but even then, please don't abuse it. They probably wouldn't like it.
 [Urban Dictionary]: http://urbandictionary.com/
 [Nick Charlton]: http://nickcharlton.net/
 [Alfred]: http://alfredapp.com/
+[RFC 3986]: http://tools.ietf.org/html/rfc3986
+[contact]: http://nickcharlton.net/about.html
 [GitHub]: https://github.com/nickcharlton/urbanscraper
 [Heroku]: http://heroku.com/
 [tos]: http://www.urbandictionary.com/tos.php
