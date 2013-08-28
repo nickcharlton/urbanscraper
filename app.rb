@@ -29,10 +29,10 @@ end
 
 get '/define/:term.json' do
   data = Hash[
-    "word" => params[:term], # term requested
-    "timestamp" => Time.now.to_i, # the timestamp of the definition
-    "status" => 200, # status of the request
-    "url" => "http://www.urbandictionary.com/define.php?term=#{params[:term]}" # the url for the word
+    :word => params[:term], # term requested
+    :timestamp => Time.now.to_i, # the timestamp of the definition
+    :status => 200, # status of the request
+    :url => "http://www.urbandictionary.com/define.php?term=#{params[:term]}" # the url for the word
   ]
   
   data[:definition] = get_top_definition(params[:term])
@@ -47,5 +47,5 @@ end
 
 # some error handling
 error NoDef do
-  Hash['status' => '404', 'message' => 'No definition found'].to_json
+  Hash[:status => '404', :message => 'No definitions found.'].to_json
 end
