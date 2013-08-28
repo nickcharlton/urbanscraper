@@ -1,5 +1,7 @@
 # urbanscraper
 
+[![Build Status](https://secure.travis-ci.org/nickcharlton/moviesapi.png?branch=master)](http://travis-ci.org/nickcharlton/moviesapi)
+
 [Urban Dictionary][] is great. But, it's missing an API. So, this provides one.
 
 This was [originally built to provide a data source for a an extension to the Mac
