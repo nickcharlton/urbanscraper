@@ -1,6 +1,6 @@
 ## 2.0 (unreleased)
 
-* `[ ]` Refactors the screenscraping code into a model class.
+* `[x]` Refactors the screenscraping code into a model class.
 * `[ ]` Adds an outgoing user agent for the screenscraping code.
 * `[ ]` Adds tests for the screenscraping class.
 * `[ ]` Adds Travis for CI.
