@@ -1,10 +1,9 @@
 body {
     font: normal 120%/1.6 "Lucida Grande", sans-serif;
     margin: 1.0416667%; /* 10px / 960px */
-	width: 60%;
-	background-color: #FFFFFF;
-	padding: 1.0416667%; /* 10px / 960px */
-
+    width: 60%;
+    background-color: #FFFFFF;
+    padding: 1.0416667%; /* 10px / 960px */
 }
 
 .smallcaps {
@@ -12,4 +11,8 @@ body {
     font-size: 0.5em; /* 10px / 16px */
 }
 
+pre {
+    overflow: auto;
+    font-size: 0.75em;
+}
 
