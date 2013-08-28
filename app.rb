@@ -37,7 +37,7 @@ helpers do
 end
 
 get '/' do
-  erb :home
+  markdown :home
 end
 
 get '/define/:term.json' do
