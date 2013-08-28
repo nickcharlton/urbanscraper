@@ -11,4 +11,6 @@ gem 'pygments.rb', '~> 0.5'
 group :development, :test do
   gem 'rake', '~> 0.9'
   gem 'minitest', '~> 5.0'
+  gem 'webmock', '~> 1.13'
+  gem 'vcr', '~> 2.5'
 end
