@@ -48,6 +48,7 @@ down, but even then, please don't abuse it. They probably wouldn't like it.
 
 [Urban Dictionary]: http://urbandictionary.com/
 [Nick Charlton]: http://nickcharlton.net/
+[Alfred]: http://alfredapp.com/
 [GitHub]: https://github.com/nickcharlton/urbanscraper
 [Heroku]: http://heroku.com/
 [tos]: http://www.urbandictionary.com/tos.php
