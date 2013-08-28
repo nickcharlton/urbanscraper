@@ -3,9 +3,11 @@ require 'open-uri'
 require 'json'
 
 class UrbanDictionary
+  URL = 'http://www.urbandictionary.com/define.php?term=' 
+
   def get_top_definition(term)
     # pull it into nokogiri
-    doc = Nokogiri::HTML(open('http://www.urbandictionary.com/define.php?term=' + term))
+    doc = Nokogiri::HTML(open(URL + term))
     
     # run the xpath
     entries_block = doc.xpath("/html/body//table[@id='entries']")
