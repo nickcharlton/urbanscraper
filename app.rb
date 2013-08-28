@@ -3,6 +3,19 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
+require 'redcarpet'
+require 'pygments.rb'
+
+class HTMLwithPygments < Redcarpet::Render::HTML
+  def block_code(code, language)
+    Pygments.highlight(code, lexer: language)
+  end
+end
+
+Tilt.register Tilt::RedcarpetTemplate::Redcarpet2, 'markdown', 'md'
+set :markdown, :renderer => HTMLwithPygments, :fenced_code_blocks => true, 
+                                              :layout_engine => :erb
+
 # some error handling for later
 NoDef = Class.new(StandardError)
 
