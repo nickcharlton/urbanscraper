@@ -18,6 +18,12 @@ GET /define/term.json
 
 ### Response
 
+```headers
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+```
+
 ```json
 {
    "timestamp":1319831727,

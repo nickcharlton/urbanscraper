@@ -8,7 +8,12 @@ require 'pygments.rb'
 
 class HTMLwithPygments < Redcarpet::Render::HTML
   def block_code(code, language)
-    Pygments.highlight(code, lexer: language)
+    if language.eql? 'headers'
+      options = {:cssclass => language}
+      language = ''
+    end
+
+    Pygments.highlight(code, :lexer => language, :options => options)
   end
 end
 
