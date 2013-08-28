@@ -1,5 +1,3 @@
-<h1>UrbanScraper <span class="smallcaps">an API for Urban Dictionary</span></h1>
-
 UrbanScraper implements a simple API for accessing [Urban Dictionary][]. [Nick 
 Charlton][] built this to get definitions through [Alfred][].
 
