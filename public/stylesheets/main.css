@@ -14,5 +14,15 @@ body {
 pre {
     overflow: auto;
     font-size: 0.75em;
+    margin: 0;
+    padding: 1.5625%; /* 15px / 960px */
+}
+
+div.highlight {
+    background-color: #F9F9F9;
+}
+
+div.headers {
+    background-color: #F3F3F3;
 }
 
