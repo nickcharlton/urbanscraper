@@ -11,8 +11,7 @@ class UrbanDictionary
 
   def get_top_definition(term)
     definitions = fetch_definitions(term)
-    top_definition = parse_definition(definitions[0])
-    top_definition[:definition]
+    parse_definition(definitions[0])
   end
 
   private
