@@ -29,22 +29,14 @@ end
 #
 # Get the Top Definition for a Term
 #
-get '/define/:term.json' do
-  data = Hash[
-    :word => params[:term], # term requested
-    :timestamp => Time.now.to_i, # the timestamp of the definition
-    :status => 200, # status of the request
-    :url => "http://www.urbandictionary.com/define.php?term=#{params[:term]}" # the url for the word
-  ]
+get '/define/:term' do
+  definition = ud.get_top_definition(params[:term])
   
-  data[:definition] = ud.get_top_definition(params[:term])
-  
-  if data[:definition].empty?
+  if definition.empty?
     raise NoDef
   end
 
-  content_type :text
-  data.to_json
+  definition.to_json
 end
 
 # some error handling
