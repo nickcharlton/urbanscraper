@@ -31,7 +31,7 @@ X-RateLimit-Remaining: 99
 ```json
 {
    "id": "1401399",
-   "word": "zomg",
+   "term": "zomg",
    "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\"",
    "example": "\"zOMG! you r teh winz!!one!!eleven!\"",
    "author": "ectweak",
@@ -64,16 +64,24 @@ X-RateLimit-Remaining: 99
 
 ```json
 [{
-   "id": "1319831727",
-   "word": "zomg",
-   "url": "http://www.urbandictionary.com/define.php?term=zomg",
-   "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\""
+   "id": "1401399",
+   "term": "zomg",
+   "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\"",
+   "example": "\"zOMG! you r teh winz!!one!!eleven!\"",
+   "author": "ectweak",
+   "author_url": "http://www.urbandictionary.com/author.php?author=ectweak",
+   "url": "http://www.urbandictionary.com/define.php?term=zomg&defid=1401399",
+   "posted": "2005-08-06T00:00:00+00:00"
 },
 {
-   "id": "1319831727",
-   "word": "zomg",
-   "url": "http://www.urbandictionary.com/define.php?term=zomg",
-   "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\""
+   "id": "1401399",
+   "term": "zomg",
+   "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\"",
+   "example": "\"zOMG! you r teh winz!!one!!eleven!\"",
+   "author": "ectweak",
+   "author_url": "http://www.urbandictionary.com/author.php?author=ectweak",
+   "url": "http://www.urbandictionary.com/define.php?term=zomg&defid=1401399",
+   "posted": "2005-08-06T00:00:00+00:00"
 },
 ...
 ]
