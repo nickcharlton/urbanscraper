@@ -11,21 +11,14 @@ class UrbanDictionary
 
   def get_top_definition(term)
     definitions = fetch_definitions(term)
-    definition = parse_definition(definitions[0])
 
-    definition[:word] = term
-    definition
+    parse_definition(term, definitions[0])
   end
 
   def get_definitions(term)
     definitions = fetch_definitions(term)
 
-    definitions.map do |m|
-      definition = parse_definition(m)
-
-      definition[:word] = term
-      definition
-    end
+    definitions.map { |m| parse_definition(term, m) }
   end
 
   private
@@ -51,7 +44,7 @@ class UrbanDictionary
     definitions
   end
 
-  def parse_definition(definition)
+  def parse_definition(term, definition)
     # split the identifier
     id = definition.attribute('id').value
     id.sub!(/entry_/, '')
@@ -84,6 +77,8 @@ class UrbanDictionary
 
     Hash[
       :id => id, 
+      :term => term,
+      :url => "#{URL}#{term}&defid=#{id}",
       :definition => definition_text, 
       :example => example, 
       :author => author,
