@@ -11,7 +11,21 @@ class UrbanDictionary
 
   def get_top_definition(term)
     definitions = fetch_definitions(term)
-    parse_definition(definitions[0])
+    definition = parse_definition(definitions[0])
+
+    definition[:word] = term
+    definition
+  end
+
+  def get_definitions(term)
+    definitions = fetch_definitions(term)
+
+    definitions.map do |m|
+      definition = parse_definition(m)
+
+      definition[:word] = term
+      definition
+    end
   end
 
   private

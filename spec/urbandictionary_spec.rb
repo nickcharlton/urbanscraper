@@ -23,4 +23,18 @@ describe 'UrbanDictionary' do
     # it should match the commonest first result
     definition[:definition].must_match(/zOMG is a varient of the all-too-popular acronym/)
   end
+
+  it 'can fetch a list of possible definitions' do
+    definitions = @ud.get_definitions('zomg')
+
+    # check there's a result
+    definitions.wont_be_empty
+
+    # extract
+    definition = definitions.first
+
+    # and test a definition
+    definition.must_be_kind_of Hash
+    definition[:definition].must_match(/zOMG is a varient of the all-too-popular acronym/)
+  end
 end
