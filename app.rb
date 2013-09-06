@@ -18,6 +18,7 @@ NoDef = Class.new(StandardError)
 # Helpers
 #
 before do
+  # we'll always return json
   content_type :json
 end
 
@@ -31,6 +32,9 @@ end
 # Documentation
 #
 get '/' do
+  # in this case, json isn't appropriate
+  content_type :html
+
   markdown :home
 end
 
