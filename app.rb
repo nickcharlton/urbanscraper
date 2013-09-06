@@ -15,6 +15,14 @@ ud = UrbanDictionary.new
 NoDef = Class.new(StandardError)
 
 #
+# Helpers
+#
+before do
+  content_type :json
+end
+
+
+#
 # Routes
 #
 
