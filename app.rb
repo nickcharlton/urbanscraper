@@ -67,3 +67,15 @@ end
 error NoDefinition do
   {:message => 'No definitions could be found.'}.to_json
 end
+
+error 400 do
+  {:message => "Something was wrong with your request: #{env['sinatra.error']}"}.to_json
+end
+
+error 500 do
+  {:message => 'Something went wrong along the way. It was logged to be looked at.'}.to_json
+end
+
+error do
+  {:message => 'An unknown error occurred. Check the docs for help.'}.to_json
+end
