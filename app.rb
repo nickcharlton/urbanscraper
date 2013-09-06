@@ -11,8 +11,8 @@ require_relative 'models/urbandictionary.rb'
 #
 ud = UrbanDictionary.new
 
-# some error handling for later
-NoDef = Class.new(StandardError)
+# custom error handling classes
+NoDefinition = Class.new(StandardError)
 
 #
 # Helpers
@@ -20,9 +20,9 @@ NoDef = Class.new(StandardError)
 helpers do
   def time_for(value)
     case value
-    when :yesterday then Time.now - 24*60*60
-    when :tomorrow  then Time.now + 24*60*60
-    else super
+      when :yesterday then Time.now - 24*60*60
+      when :tomorrow  then Time.now + 24*60*60
+      else super
     end
   end
 end
@@ -30,16 +30,9 @@ end
 before do
   # you can always cache until tomorrow
   expires :tomorrow
-
   # we'll always return json
   content_type :json
 end
-
-
-#
-# Routes
-#
-
 
 #
 # Documentation
@@ -58,7 +51,7 @@ get '/define/:term' do
   definition = ud.get_top_definition(params[:term])
   
   if definition.empty?
-    raise NoDef
+    raise NoDefinition
   end
 
   definition.to_json
@@ -71,6 +64,6 @@ not_found do
   {:message => 'Route not found. Check your syntax.'}.to_json
 end
 
-error NoDef do
-  Hash[:status => '404', :message => 'No definitions found.'].to_json
+error NoDefinition do
+  {:message => 'No definitions could be found.'}.to_json
 end
