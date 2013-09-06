@@ -3,8 +3,8 @@ require 'redcarpet'
 require 'pygments'
 require 'json'
 
-require_relative 'utils/markdown.rb'
-require_relative 'models/urbandictionary.rb'
+require_relative 'utils/markdown'
+require_relative 'models/urbandictionary'
 
 #
 # UrbanDictionary Global
