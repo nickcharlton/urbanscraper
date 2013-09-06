@@ -73,7 +73,11 @@ class UrbanDictionary
     end
 
     # extract the metadata block
-    metadata_block = definition.search("div[@class='greenery']")
+    begin
+      metadata_block = definition.search("div[@class='greenery']")
+    rescue NoMethodError
+      metadata_block = nil
+    end
 
     # parse the author
     begin
