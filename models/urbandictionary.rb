@@ -46,34 +46,60 @@ class UrbanDictionary
 
   def parse_definition(term, definition)
     # split the identifier
-    id = definition.attribute('id').value
-    id.sub!(/entry_/, '')
-    
+    begin
+      id = definition.attribute('id').value
+      id.sub!(/entry_/, '')
+    rescue NoMethodError
+      id = ""
+    end
+
     # extract the definition and clean it up
-    definition_block = definition.search("div[@class='definition']")
-    definition_text = ""
-    definition_block.each { |e| definition_text << e.to_str }
-    definition_text.strip!
+    begin
+      definition_block = definition.search("div[@class='definition']")
+      definition_text = ""
+      definition_block.each { |e| definition_text << e.to_str }
+      definition_text.strip!
+    rescue NoMethodError
+      definition_text
+    end
 
     # extract the example
-    example_block = definition.search("div[@class='example']")
-    example = example_block.first.content
-    example.strip!
+    begin
+      example_block = definition.search("div[@class='example']")
+      example = example_block.first.content
+      example.strip!
+    rescue NoMethodError
+      example = ""
+    end
 
     # extract the metadata block
     metadata_block = definition.search("div[@class='greenery']")
 
     # parse the author
-    author_block = metadata_block.search("a[@class='author']")
-    author = author_block.children.first.content
-    author_url = author_block.attribute('href').value
-    author_url = "#{DOMAIN}#{author_url}"
+    begin
+      author_block = metadata_block.search("a[@class='author']")
+      author = author_block.children.first.content
+    rescue NoMethodError
+      author = ""
+    end
+
+    # and author url
+    begin
+      author_url = author_block.attribute('href').value
+      author_url = "#{DOMAIN}#{author_url}"
+    rescue NoMethodError
+      author_url = ""
+    end
 
     # post date
-    date_string_block = metadata_block.search("span[@class='date']")
-    date_string = date_string_block.first.content
-    date_string.strip!
-    date = DateTime.parse(date_string)
+    begin
+      date_string_block = metadata_block.search("span[@class='date']")
+      date_string = date_string_block.first.content
+      date_string.strip!
+      date = DateTime.parse(date_string)
+    rescue NoMethodError
+      date = nil
+    end
 
     Hash[
       :id => id, 
