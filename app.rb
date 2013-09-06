@@ -64,7 +64,13 @@ get '/define/:term' do
   definition.to_json
 end
 
-# some error handling
+#
+# Error Handling
+#
+not_found do
+  {:message => 'Route not found. Check your syntax.'}.to_json
+end
+
 error NoDef do
   Hash[:status => '404', :message => 'No definitions found.'].to_json
 end
