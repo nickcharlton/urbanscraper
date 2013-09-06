@@ -17,7 +17,20 @@ NoDef = Class.new(StandardError)
 #
 # Helpers
 #
+helpers do
+  def time_for(value)
+    case value
+    when :yesterday then Time.now - 24*60*60
+    when :tomorrow  then Time.now + 24*60*60
+    else super
+    end
+  end
+end
+
 before do
+  # you can always cache until tomorrow
+  expires :tomorrow
+
   # we'll always return json
   content_type :json
 end
