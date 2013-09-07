@@ -2,10 +2,10 @@
 
 * `[x]` Refactors the screenscraping code into a model class.
 * `[x]` Adds an outgoing user agent for the screenscraping code.
-* `[ ]` Adds tests for the screenscraping class.
+* `[x]` Adds tests for the screenscraping class.
 * `[x]` Adds Travis for CI.
 * `[ ]` Auto-deploy from Travis.
-* `[ ]` Adds a route for search for a term.
+* `[x]` Adds a route for search for a term.
 * `[ ]` Implements caching using Redis to hold onto definitions.
 * `[ ]` Implements rate limiting to kirb against abuse.
 * `[x]` Improves the error handling.
