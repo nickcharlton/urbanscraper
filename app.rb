@@ -25,6 +25,17 @@ helpers do
       else super
     end
   end
+
+  def valid_response?(result)
+    definition = result[:definition]
+    posted = result[:posted]
+
+    if definition and posted
+      return true
+    else
+      return false
+    end
+  end
 end
 
 before do
@@ -50,7 +61,7 @@ end
 get '/define/:term' do
   definition = ud.get_top_definition(params[:term])
   
-  if definition.empty?
+  unless valid_response? definition
     raise NoDefinition
   end
 
