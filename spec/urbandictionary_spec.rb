@@ -37,4 +37,18 @@ describe 'UrbanDictionary' do
     definition.must_be_kind_of Hash
     definition[:definition].must_match(/zOMG is a varient of the all-too-popular acronym/)
   end
+
+  it 'can gracefully handle a bad request' do
+    definition = @ud.get_top_definition('thvbqgfbhkrvjv')
+
+    # check there's a result
+    definition.wont_be_empty
+
+    # it should be a hash
+    definition.must_be_kind_of Hash
+
+    # it will look fine, but not contain a result
+    defined = definition[:definition]
+    defined.must_be_nil
+  end
 end
