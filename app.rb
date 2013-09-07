@@ -62,7 +62,7 @@ get '/define/:term' do
   definition = ud.get_top_definition(params[:term])
   
   unless valid_response? definition
-    raise NoDefinition
+    raise NoDefinition, params[:term]
   end
 
   definition.to_json
@@ -78,7 +78,7 @@ end
 error NoDefinition do
   status 404
 
-  {:message => 'No definitions could be found.'}.to_json
+  {:message => "No definitions could be found for: #{env['sinatra.error'].message}"}.to_json
 end
 
 error 400 do

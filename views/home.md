@@ -102,11 +102,23 @@ X-RateLimit-Remaining: 99
 
 ```json
 {
-    "message": "No definitions could be found."
+    "message": "No definitions could be found for: thvbqgfbhkrvjv."
 }
 ```
 
-If you miss-call a route, you'll get a similar message.
+If you miss-call a route, this will happen instead:
+
+```headers
+Status: 404 Not Found
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 99
+```
+
+```json
+{
+    "message": "Route not found. Check your syntax."
+}
+```
 
 ### 403: Forbidden (Rate Limit Exceeded)
 
