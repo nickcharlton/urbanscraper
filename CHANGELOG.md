@@ -8,7 +8,7 @@
 * `[ ]` Adds a route for search for a term.
 * `[ ]` Implements caching using Redis to hold onto definitions.
 * `[ ]` Implements rate limiting to kirb against abuse.
-* `[ ]` Improves the error handling.
+* `[x]` Improves the error handling.
 * `[ ]` Adds HTTP Headers to communicate the rate limiting and caching.
 * `[x]` Moves the documentation to Markdown, not HTML.
 * `[x]` Huge improvements to the presentation of the API calls and responses.

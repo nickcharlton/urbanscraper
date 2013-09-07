@@ -69,6 +69,15 @@ get '/define/:term' do
 end
 
 #
+# Search for Definitions
+#
+get '/search/:term' do
+  definitions = ud.get_definitions(params[:term])
+
+  definitions.to_json
+end
+
+#
 # Error Handling
 #
 not_found do
