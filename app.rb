@@ -76,6 +76,8 @@ not_found do
 end
 
 error NoDefinition do
+  status 404
+
   {:message => 'No definitions could be found.'}.to_json
 end
 
