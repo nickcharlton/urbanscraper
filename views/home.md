@@ -102,7 +102,7 @@ X-RateLimit-Remaining: 99
 
 ```json
 {
-    "message": "No definition could be found for that term."
+    "message": "No definitions could be found."
 }
 ```
 
@@ -127,8 +127,8 @@ X-RateLimit-Remaining: 0
 }
 ```
 
-If you exceed the limit and you don't think you're abusing it, [contact me][contact].
-All requests count towards your rate limit, and it's a global setting.
+All requests count towards your rate limit, and it's a global setting. If you 
+exceed the limit and you don't think you're abusing it, [contact me][contact].
 
 ## Usage/Copyright/License
 
