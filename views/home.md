@@ -41,6 +41,8 @@ X-RateLimit-Remaining: 99
 }
 ```
 
+A 404 error will be returned if no definitions can be found (see below).
+
 ### Search for Definitions
 
 Return a list of definitions of a term. `:term` should be encoded according to 
@@ -74,18 +76,22 @@ X-RateLimit-Remaining: 99
    "posted": "2005-08-06T00:00:00+00:00"
 },
 {
-   "id": "1401399",
+   "id": "2212015",
    "term": "zomg",
-   "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\"",
-   "example": "\"zOMG! you r teh winz!!one!!eleven!\"",
-   "author": "ectweak",
-   "author_url": "http://www.urbandictionary.com/author.php?author=ectweak",
-   "url": "http://www.urbandictionary.com/define.php?term=zomg&defid=1401399",
-   "posted": "2005-08-06T00:00:00+00:00"
+   "definition": "OMG was the ruler of the planet XYRZON until 2451 AD...",
+   "example": "ZOMG, i love cupcakes.",
+   "author": "WARRIOR MAN",
+   "author_url": "http://www.urbandictionary.com/author.php?author=WARRIOR+MAN",
+   "url": "http://www.urbandictionary.com/define.php?term=zomg&defid=2212015",
+   "posted": "2007-01-22T00:00:00+00:00"
 },
 ...
 ]
 ```
+
+Unlike the top definition, search won't return an error if no reponse is found.
+Instead, the result will be an empty JSON array. It will return about 7 results, as
+this is where Urban Dictionary starts to page them.
 
 ## Error Handling and Rate Limiting
 
