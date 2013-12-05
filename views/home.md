@@ -24,8 +24,6 @@ GET /define/:term
 
 ```headers
 Status: 200 OK
-X-RateLimit-Limit: 100
-X-RateLimit-Remaining: 99
 ```
 
 ```json
@@ -60,8 +58,6 @@ GET /search/:term
 
 ```headers
 Status: 200 OK
-X-RateLimit-Limit: 100
-X-RateLimit-Remaining: 99
 ```
 
 ```json
@@ -93,7 +89,7 @@ Unlike the top definition, search won't return an error if no reponse is found.
 Instead, the result will be an empty JSON array. It will return about 7 results, as
 this is where Urban Dictionary starts to page them.
 
-## Error Handling and Rate Limiting
+## Error Handling
 
 ### 404: Not Found
 
@@ -102,8 +98,6 @@ look a bit like this:
 
 ```headers
 Status: 404 Not Found
-X-RateLimit-Limit: 100
-X-RateLimit-Remaining: 99
 ```
 
 ```json
@@ -116,8 +110,6 @@ If you miss-call a route, this will happen instead:
 
 ```headers
 Status: 404 Not Found
-X-RateLimit-Limit: 100
-X-RateLimit-Remaining: 99
 ```
 
 ```json
@@ -125,28 +117,6 @@ X-RateLimit-Remaining: 99
     "message": "Route not found. Check your syntax."
 }
 ```
-
-### 403: Forbidden (Rate Limit Exceeded)
-
-Access is limited in two ways. First, with an **hourly limit of 100 requests** as
-well as enforcing a **3-second interval between requests**. This is just so that
-UrbanScraper doesn't abuse Urban Dictionary too much. If you exceed your limit,
-you'll see:
-
-```headers
-Status: 403 Forbidden
-X-RateLimit-Limit: 100
-X-RateLimit-Remaining: 0
-```
-
-```json
-{
-    "message": "API rate limit exceeded. Check the documentation."
-}
-```
-
-All requests count towards your rate limit, and it's a global setting. If you 
-exceed the limit and you don't think you're abusing it, [contact me][contact].
 
 ## Usage/Copyright/License
 
