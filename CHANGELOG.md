@@ -1,17 +1,29 @@
+## 2.2: (unreleased)
+
+* Caching of screenscraping requests.
+* HTTP headers to communicate the caching (and what a client should do).
+
+## 2.1: (unreleased)
+
+* Addition of Sentry for exception handling.
+* Metric collection of terms, API call execution duration.
+* Move to urbanscraper.org and self-hosting.
+
+## 2.0.1 (unreleased)
+
+* Fixes to the screenscraping implementation.
+* Removes the rate limiting references from the documentation.
+
 ## 2.0 (unreleased)
 
-* `[x]` Refactors the screenscraping code into a model class.
-* `[x]` Adds an outgoing user agent for the screenscraping code.
-* `[x]` Adds tests for the screenscraping class.
-* `[x]` Adds Travis for CI.
-* `[ ]` Auto-deploy from Travis.
-* `[x]` Adds a route for search for a term.
-* `[ ]` Implements caching using Redis to hold onto definitions.
-* `[ ]` Implements rate limiting to kirb against abuse.
-* `[x]` Improves the error handling.
-* `[ ]` Adds HTTP Headers to communicate the rate limiting and caching.
-* `[x]` Moves the documentation to Markdown, not HTML.
-* `[x]` Huge improvements to the presentation of the API calls and responses.
+* Refactors the screenscraping code into a model class.
+* Adds an outgoing user agent for the screenscraping code.
+* Adds tests for the screenscraping class.
+* Adds Travis for CI.
+* Adds a route for search for a term.
+* Improves the error handling.
+* Moves the documentation to Markdown, not HTML.
+* Huge improvements to the presentation of the API calls and responses.
 
 ## 1.1.1 (21st June, 2013)
 
