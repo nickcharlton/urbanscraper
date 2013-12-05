@@ -28,8 +28,8 @@ class UrbanDictionary
     doc = Nokogiri::HTML(open(URL + term, 'User-Agent' => UA))
     
     # run the xpath
-    entries_block = doc.xpath("/html/body//table[@id='entries']")
-    definition_group = entries_block.search("td[@class='text']")
+    entries_block = doc.xpath("/html/body//div[@id='entries']")
+    definition_group = entries_block.search("div[@class='text']")
 
     # extract the actual definitions
     definitions = Array.new
