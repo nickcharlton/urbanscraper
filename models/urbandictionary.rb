@@ -4,7 +4,7 @@ require 'json'
 require 'date'
 
 class UrbanDictionary
-  VERSION = '2.0pre'
+  VERSION = '2.1'
   UA = "UrbanScraper/#{VERSION} (http://urbanscraper.herokuapp.com)"
   DOMAIN = 'http://www.urbandictionary.com'
   URL = "#{DOMAIN}/define.php?term=" 
