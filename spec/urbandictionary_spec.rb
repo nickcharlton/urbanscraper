@@ -45,6 +45,21 @@ describe 'UrbanDictionary' do
     definition[:definition].must_match(/zOMG is a varient of the all-too-popular acronym/)
   end
 
+  it 'should handle items properly down the list' do
+    definitions = @ud.get_definitions('zomg')
+
+    # check there's a result
+    definitions.wont_be_empty
+
+    # extract an item other than the first to test
+    definition = definitions[1]
+
+    # and test it
+    definition.must_be_kind_of Hash
+    definition[:id].must_match(/2212015/)
+    definition[:term].must_match(/zomg/)
+  end
+
   it 'can gracefully handle a bad request' do
     definition = @ud.get_top_definition('thvbqgfbhkrvjv')
 
