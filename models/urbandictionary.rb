@@ -32,10 +32,9 @@ class UrbanDictionary
   end
 
   def parse_definition(term, definition)
-    # split the identifier
+    # extract the identifier
     begin
-      id = definition.attribute('id').value
-      id.sub!(/entry_/, '')
+      id = definition.attribute('data-defid').value
     rescue NoMethodError
       id = ""
     end
