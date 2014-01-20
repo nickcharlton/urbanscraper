@@ -58,16 +58,17 @@ class UrbanDictionary
       example = ""
     end
 
-    # extract the metadata block
+    # extract the block holding the metadata
     begin
-      metadata_block = definition.search("div[@class='greenery']")
+      metadata_block = definition.search("div[@class='contributor']")
+      metadata_block = metadata_block.children
     rescue NoMethodError
       metadata_block = nil
     end
 
     # parse the author
     begin
-      author_block = metadata_block.search("a[@class='author']")
+      author_block = definition.search("a[@class='author']")
       author = author_block.children.first.content
     rescue NoMethodError
       author = ""
@@ -83,8 +84,7 @@ class UrbanDictionary
 
     # post date
     begin
-      date_string_block = metadata_block.search("span[@class='date']")
-      date_string = date_string_block.first.content
+      date_string = metadata_block.last.content
       date_string.strip!
       date = DateTime.parse(date_string)
     rescue NoMethodError
