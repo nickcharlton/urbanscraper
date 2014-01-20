@@ -28,20 +28,7 @@ class UrbanDictionary
     doc = Nokogiri::HTML(open(URL + term, 'User-Agent' => UA))
     
     # run the xpath
-    entries_block = doc.xpath("/html/body//div[@id='entries']")
-    definition_group = entries_block.search("div[@class='text']")
-
-    # extract the actual definitions
-    definitions = Array.new
-    definition_group.each do |e|
-      # actual definitions have an id attribute like: "entry_123456".
-      id = e.attribute('id')
-      if id.value.start_with? "entry_"
-        definitions.push e
-      end
-    end
-
-    definitions
+    doc.search("/html/body//div[@class='box']")
   end
 
   def parse_definition(term, definition)
