@@ -23,11 +23,11 @@ describe 'UrbanDictionary' do
     # it should match the typically returned first result
     definition[:id].must_match(/1401399/)
     definition[:term].must_match(/zomg/)
-    definition[:url].must_match(/http:\/\/www.urbandictionary.com\/define.php?term=zomg&defid=1401399/)
+    definition[:url].must_match("http://www.urbandictionary.com/define.php?term=zomg&defid=1401399")
     definition[:definition].must_match(/zOMG is a varient of the all-too-popular acronym/)
     definition[:example].must_match(/"zOMG! you r teh winz!!one!!eleven!"/)
     definition[:author].must_match(/ectweak/)
-    definition[:author_url].must_match(/http:\/\/www.urbandictionary.com\/author.php?author=ectweak/)
+    definition[:author_url].must_match("http://www.urbandictionary.com/author.php?author=ectweak")
     definition[:posted].wont_be_nil
   end
 
