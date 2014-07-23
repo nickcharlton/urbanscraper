@@ -41,7 +41,7 @@ class UrbanDictionary
 
     # extract the definition and clean it up
     begin
-      definition_block = definition.search("div[@class='definition']")
+      definition_block = definition.search("div[@class='meaning']")
       definition_text = ""
       definition_block.each { |e| definition_text << e.to_str }
       definition_text.strip!
