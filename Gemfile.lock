@@ -17,6 +17,8 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
     rake (0.9.6)
     redcarpet (3.0.0)
     safe_yaml (0.9.5)
@@ -42,6 +44,7 @@ DEPENDENCIES
   minitest (~> 5.0)
   nokogiri (~> 1.6)
   pygments.rb (~> 0.5)
+  rack-test (~> 0.6)
   rake (~> 0.9)
   redcarpet (~> 3.0)
   sinatra (~> 1.4)
