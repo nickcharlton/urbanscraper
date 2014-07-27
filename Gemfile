@@ -14,4 +14,5 @@ group :development, :test do
   gem 'minitest', '~> 5.0'
   gem 'webmock', '~> 1.13'
   gem 'vcr', '~> 2.5'
+  gem 'coveralls', require: false
 end
