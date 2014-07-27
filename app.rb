@@ -2,6 +2,7 @@ require 'sinatra'
 require 'redcarpet'
 require 'pygments'
 require 'json'
+require 'sinatra/jsonp'
 
 require_relative 'utils/markdown'
 require_relative 'models/urbandictionary'
@@ -65,7 +66,7 @@ get '/define/:term' do
     raise NoDefinition, params[:term]
   end
 
-  definition.to_json
+  jsonp definition
 end
 
 #
@@ -74,7 +75,7 @@ end
 get '/search/:term' do
   definitions = ud.get_definitions(params[:term])
 
-  definitions.to_json
+  jsonp definitions
 end
 
 #
