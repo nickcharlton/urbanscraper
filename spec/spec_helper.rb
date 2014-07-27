@@ -1,5 +1,9 @@
 ENV['RACK_ENV'] = 'test'
 
+# enable coveralls
+require 'coveralls'
+Coveralls.wear!
+
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'rack/test'
