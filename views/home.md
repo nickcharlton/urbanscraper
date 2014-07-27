@@ -1,9 +1,9 @@
-UrbanScraper implements a simple API for accessing [Urban Dictionary][]. [Nick 
+UrbanScraper implements a simple API for accessing [Urban Dictionary][]. [Nick
 Charlton][] built this to get definitions through [Alfred][].
 
-_**Note:** This was built because Urban Dictionary doesn't have their own API. To 
-make it work, this relies on screen scraping. If you don't get a result when you 
-should, something has probably changed._ 
+_**Note:** This was built because Urban Dictionary doesn't have their own API. To
+make it work, this relies on screen scraping. If you don't get a result when you
+should, something has probably changed._
 
 ## Routes
 
@@ -18,7 +18,7 @@ GET /define/:term
 
 #### Parameters
 
-* None.
+* `callback`: A JSONP wrapper function. _(optional)_.
 
 #### Response
 
@@ -43,7 +43,7 @@ A 404 error will be returned if no definitions can be found (see below).
 
 ### Search for Definitions
 
-Return a list of definitions of a term. `:term` should be encoded according to 
+Return a list of definitions of a term. `:term` should be encoded according to
 [RFC 3986][].
 
 ```
@@ -52,7 +52,7 @@ GET /search/:term
 
 #### Parameters
 
-* None.
+* `callback`: A JSONP wrapper function. _(optional)_.
 
 #### Response
 
@@ -89,6 +89,37 @@ Unlike the top definition, search won't return an error if no reponse is found.
 Instead, the result will be an empty JSON array. It will return about 7 results, as
 this is where Urban Dictionary starts to page them.
 
+## JSONP
+
+All of the definition methods also support JSONP. This is useful if you're
+trying to load these methods over JavaScript on another domain, allowing you
+to work around [Cross Origin resource sharing][cross-origin] issues.
+
+You might use it like this:
+
+```
+GET /define/:term?callback=functionA
+```
+
+### Reponse
+
+```headers
+Status: 200 OK
+```
+
+```javascript
+functionA({
+   "id": "1401399",
+   "term": "zomg",
+   "definition": "zOMG is a varient of the all-too-popular acronym \"OMG\"",
+   "example": "\"zOMG! you r teh winz!!one!!eleven!\"",
+   "author": "ectweak",
+   "author_url": "http://www.urbandictionary.com/author.php?author=ectweak",
+   "url": "http://www.urbandictionary.com/define.php?term=zomg&defid=1401399",
+   "posted": "2005-08-06T00:00:00+00:00"
+});
+```
+
 ## Error Handling
 
 ### 404: Not Found
@@ -122,10 +153,10 @@ Status: 404 Not Found
 
 The code is up on [GitHub][]. It's MIT licensed. And, it's hosted on [Heroku][].
 
-The content is owned by those who submitted it to Urban Dictionary. Using this 
+The content is owned by those who submitted it to Urban Dictionary. Using this
 (presumably) puts you under the [Urban Dictionary Terms of Service][tos].
 
-A little bit of caching is done on my side to keep the hits to Urban Dictionary 
+A little bit of caching is done on my side to keep the hits to Urban Dictionary
 down, but even then, please don't abuse it. They probably wouldn't like it.
 
 [Urban Dictionary]: http://urbandictionary.com/
@@ -133,6 +164,7 @@ down, but even then, please don't abuse it. They probably wouldn't like it.
 [Alfred]: http://alfredapp.com/
 [RFC 3986]: http://tools.ietf.org/html/rfc3986
 [contact]: http://nickcharlton.net/about.html
+[cross-origin]: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 [GitHub]: https://github.com/nickcharlton/urbanscraper
 [Heroku]: http://heroku.com/
 [tos]: http://www.urbandictionary.com/tos.php
