@@ -24,7 +24,7 @@ describe 'UrbanScraper API' do
   end
 
   it 'provides a method to define a term using json' do
-    get '/define/zomg' 
+    get '/define/zomg'
 
     last_response.body.must_match(/definition(\\"|")?:(\\"|")?zOMG is a varient/)
   end

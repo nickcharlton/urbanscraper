@@ -61,7 +61,7 @@ end
 #
 get '/define/:term' do
   definition = ud.get_top_definition(params[:term])
-  
+
   unless valid_response? definition
     raise NoDefinition, params[:term]
   end

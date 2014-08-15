@@ -17,5 +17,5 @@ class HTMLwithPygments < Redcarpet::Render::HTML
 end
 
 Tilt.register Tilt::RedcarpetTemplate::Redcarpet2, 'markdown', 'md'
-set :markdown, :renderer => HTMLwithPygments, :fenced_code_blocks => true, 
+set :markdown, :renderer => HTMLwithPygments, :fenced_code_blocks => true,
                                               :layout_engine => :erb

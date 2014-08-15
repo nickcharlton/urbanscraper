@@ -7,7 +7,7 @@ class UrbanDictionary
   VERSION = '2.1'
   UA = "UrbanScraper/#{VERSION} (http://urbanscraper.herokuapp.com)"
   DOMAIN = 'http://www.urbandictionary.com'
-  URL = "#{DOMAIN}/define.php?term=" 
+  URL = "#{DOMAIN}/define.php?term="
 
   def get_top_definition(term)
     definitions = fetch_definitions(term)
@@ -26,7 +26,7 @@ class UrbanDictionary
   def fetch_definitions(term)
     # pull it into nokogiri
     doc = Nokogiri::HTML(open(URL + term, 'User-Agent' => UA))
-    
+
     # run the xpath
     doc.search("/html/body//div[@class='box']")
   end
@@ -92,11 +92,11 @@ class UrbanDictionary
     end
 
     Hash[
-      :id => id, 
+      :id => id,
       :term => term,
       :url => "#{URL}#{term}&defid=#{id}",
-      :definition => definition_text, 
-      :example => example, 
+      :definition => definition_text,
+      :example => example,
       :author => author,
       :author_url => author_url,
       :posted => date
