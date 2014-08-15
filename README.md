@@ -1,6 +1,7 @@
 # urbanscraper
 
-[![Build Status](https://secure.travis-ci.org/nickcharlton/urbanscraper.png?branch=master)](http://travis-ci.org/nickcharlton/urbanscraper)
+[![Build Status](https://travis-ci.org/nickcharlton/urbanscraper.svg)](https://travis-ci.org/nickcharlton/urbanscraper)
+[![Coverage Status](https://img.shields.io/coveralls/nickcharlton/urbanscraper.svg)](https://coveralls.io/r/nickcharlton/urbanscraper?branch=master)
 
 [Urban Dictionary][] is great. But, it's missing an API. So, this provides one.
 
