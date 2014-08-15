@@ -4,7 +4,9 @@ require 'pygments'
 require 'json'
 require 'sinatra/jsonp'
 
-require_relative 'utils/markdown'
+require_relative 'helpers/markdown'
+require_relative 'helpers/time'
+require_relative 'helpers/response'
 require_relative 'models/urbandictionary'
 
 #
@@ -18,27 +20,11 @@ NoDefinition = Class.new(StandardError)
 #
 # Helpers
 #
-helpers do
-  def time_for(value)
-    case value
-      when :yesterday then Time.now - 24*60*60
-      when :tomorrow  then Time.now + 24*60*60
-      else super
-    end
-  end
+helpers TimeUtils, ResponseUtils
 
-  def valid_response?(result)
-    definition = result[:definition]
-    posted = result[:posted]
-
-    if definition and posted
-      return true
-    else
-      return false
-    end
-  end
-end
-
+#
+# Filters
+#
 before do
   # you can always cache until tomorrow
   expires :tomorrow
