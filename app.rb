@@ -7,7 +7,7 @@ require 'sinatra/jsonp'
 require_relative 'helpers/markdown'
 require_relative 'helpers/time'
 require_relative 'helpers/response'
-require_relative 'models/urbandictionary'
+require_relative 'scrapers/urbandictionary'
 
 #
 # UrbanDictionary Global
