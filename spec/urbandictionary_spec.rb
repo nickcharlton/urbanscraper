@@ -56,7 +56,7 @@ describe 'UrbanDictionary' do
 
     # and test it
     definition.must_be_kind_of Hash
-    definition[:id].must_match(/2212015/)
+    definition[:id].must_match(/1314073/)
     definition[:term].must_match(/zomg/)
   end
 
