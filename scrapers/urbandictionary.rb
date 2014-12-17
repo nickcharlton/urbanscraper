@@ -28,7 +28,7 @@ class UrbanDictionary
     doc = Nokogiri::HTML(open(URL + term, 'User-Agent' => UA))
 
     # run the xpath
-    doc.search("/html/body//div[@class='box']")
+    doc.search("//div[@class='def-panel' and @data-defid]")
   end
 
   def parse_definition(term, definition)
