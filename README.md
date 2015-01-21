@@ -1,7 +1,9 @@
 # urbanscraper
 
 [![Build Status](https://travis-ci.org/nickcharlton/urbanscraper.svg)](https://travis-ci.org/nickcharlton/urbanscraper)
-[![Coverage Status](https://img.shields.io/coveralls/nickcharlton/urbanscraper.svg)](https://coveralls.io/r/nickcharlton/urbanscraper?branch=master)
+[![Code Climate](https://codeclimate.com/github/nickcharlton/urbanscraper/badges/gpa.svg)](https://codeclimate.com/github/nickcharlton/urbanscraper)
+[![Test Coverage](https://codeclimate.com/github/nickcharlton/urbanscraper/badges/coverage.svg)](https://codeclimate.com/github/nickcharlton/urbanscraper)
+[![Dependency Status](https://gemnasium.com/nickcharlton/urbanscraper.svg)](https://gemnasium.com/nickcharlton/urbanscraper)
 
 [Urban Dictionary][] is great. But, it's missing an API. So, this provides one.
 
