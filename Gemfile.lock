@@ -10,9 +10,9 @@ GEM
     hashdiff (0.2.3)
     json (1.8.3)
     mini_portile2 (2.0.0)
-    minitest (5.8.3)
+    minitest (5.8.4)
     multi_json (1.11.2)
-    nokogiri (1.6.7.1)
+    nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     posix-spawn (0.3.11)
     pygments.rb (0.6.3)
@@ -23,24 +23,24 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (10.4.2)
-    redcarpet (3.3.3)
+    rake (10.5.0)
+    redcarpet (3.3.4)
     safe_yaml (1.0.4)
     simplecov (0.11.1)
       docile (~> 1.1.0)
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    sinatra (1.4.6)
-      rack (~> 1.4)
+    sinatra (1.4.7)
+      rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     sinatra-jsonp (0.4.4)
       multi_json (~> 1.8)
       sinatra (~> 1.0)
-    tilt (2.0.1)
+    tilt (2.0.2)
     vcr (2.9.3)
-    webmock (1.22.3)
+    webmock (1.22.6)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -64,4 +64,4 @@ DEPENDENCIES
   webmock (~> 1.2)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
