@@ -3,6 +3,8 @@
 # Highlighting to render the Markdown based documentation.
 #
 
+require "tilt/redcarpet"
+
 class HTMLwithPygments < Redcarpet::Render::HTML
   include Redcarpet::Render::SmartyPants
 
@@ -16,6 +18,6 @@ class HTMLwithPygments < Redcarpet::Render::HTML
   end
 end
 
-Tilt.register Tilt::RedcarpetTemplate::Redcarpet2, 'markdown', 'md'
+Tilt.register Tilt::Redcarpet2Template, 'markdown', 'md'
 set :markdown, :renderer => HTMLwithPygments, :fenced_code_blocks => true,
                                               :layout_engine => :erb
