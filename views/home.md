@@ -101,7 +101,7 @@ You might use it like this:
 GET /define/:term?callback=functionA
 ```
 
-### Reponse
+### Response
 
 ```headers
 Status: 200 OK
