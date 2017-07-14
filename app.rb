@@ -43,6 +43,19 @@ get '/' do
 end
 
 #
+#  Fetches a random definition by following the /random.php redirect
+#  and taking out the term with a regexp
+#
+get '/random' do
+  rdef = ud.get_random_definition()
+    unless valid_response? definition
+    raise NoDefinition, params[:term]
+  end
+
+  jsonp definition
+end
+
+#
 # Get the Top Definition for a Term
 #
 get '/define/:term' do

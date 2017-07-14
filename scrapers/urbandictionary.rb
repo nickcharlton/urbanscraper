@@ -2,12 +2,16 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 require 'date'
+require 'net/http'
+require 'uri'
 
 class UrbanDictionary
   VERSION = '2.1'
   UA = "UrbanScraper/#{VERSION} (http://urbanscraper.herokuapp.com)"
   DOMAIN = 'http://www.urbandictionary.com'
+  RANDOM = '/random.php'
   URL = "#{DOMAIN}/define.php?term="
+  REGEXP = /^.*term=([a-zA-Z ]*)&{0,1}.*|\z/
 
   def get_top_definition(term)
     definitions = fetch_definitions(term)
@@ -19,6 +23,13 @@ class UrbanDictionary
     definitions = fetch_definitions(term)
 
     definitions.map { |m| parse_definition(term, m) }
+  end
+
+  def get_random_definition()
+    uri = URL(DOMAIN+RANDOM)
+    response = Net::HTTP.get_response(uri)
+    matchdata = REGEXP.match(response['Location'])
+    get_top_definition(matchdata[0])
   end
 
   private
