@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.4.1'
 
 gem 'rake', '~> 10.0'
 gem 'sinatra', '~> 1.4'
