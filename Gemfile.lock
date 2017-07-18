@@ -50,8 +50,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  codeclimate-test-reporter
-  json (~> 1.8)
   minitest (~> 5.5)
   nokogiri (~> 1.6)
   pygments.rb (~> 0.6)
