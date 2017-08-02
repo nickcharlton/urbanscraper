@@ -11,8 +11,9 @@ gem 'redcarpet', '~> 3.0'
 gem 'pygments.rb', '~> 0.6'
 
 group :development, :test do
-  gem 'rack-test', '~> 0.6'
-  gem 'minitest', '~> 5.5'
-  gem 'webmock', '~> 1.2'
-  gem 'vcr', '~> 2.9'
+  gem 'rack-test'
+  gem "rspec"
+  gem "pry"
+  gem 'webmock'
+  gem 'vcr'
 end

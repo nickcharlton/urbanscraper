@@ -1,11 +1,17 @@
-ENV['RACK_ENV'] = 'test'
+require "rack/test"
+require "rspec"
+require "pry"
 
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'rack/test'
+require File.expand_path "./support/vcr_setup.rb", __dir__
 
-# pull in the VCR setup
-require File.expand_path './support/vcr_setup.rb', __dir__
+require File.expand_path "../../app", __FILE__
 
-# pull in the code to test
-require File.expand_path '../app.rb', __dir__
+ENV["RACK_ENV"] = "test"
+
+RSpec.configure do |c|
+  c.include Rack::Test::Methods
+
+  def app
+    Sinatra::Application
+  end
+end
