@@ -68,15 +68,14 @@ class UrbanDictionary
 
     # parse the author
     begin
-      author_block = definition.search("a[@class='author']")
-      author = author_block.children.first.content
+      author = metadata_block.search("a").children.first.content
     rescue NoMethodError
       author = ""
     end
 
     # and author url
     begin
-      author_url = author_block.attribute('href').value
+      author_url = metadata_block.search("a").attribute("href").value
       author_url = "#{DOMAIN}#{author_url}"
     rescue NoMethodError
       author_url = ""
