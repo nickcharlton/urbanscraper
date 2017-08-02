@@ -1,38 +1,43 @@
-require File.expand_path 'spec_helper.rb', __dir__
+require File.expand_path "../spec_helper.rb", __FILE__
 
+RSpec.describe "App" do
+  let(:json_response) { JSON.parse(last_response.body) }
 
-describe 'UrbanScraper API' do
-  include Rack::Test::Methods
+  describe "/" do
+    it "renders the documentation as the homepage" do
+      get "/"
 
-  def app
-    Sinatra::Application
+      expect(last_response.body).to include(
+        "UrbanScraper implements a simple API " +
+        "for accessing <a href=\"http://urbandictionary.com/\">Urban " +
+        "Dictionary</a>.",
+      )
+    end
   end
 
-  before do
-    VCR.insert_cassette name
-  end
+  describe "/define" do
+    it "can define a term" do
+      VCR.use_cassette("define") do
+        get "/define/zomg"
 
-  after do
-    VCR.eject_cassette
-  end
+        expect(json_response["id"]).to eq("1401399")
+        expect(json_response["term"]).to eq("zomg")
+        expect(json_response["definition"]).to include("zOMG is a varient")
+        expect(json_response["example"]).to eq(
+          "\"zOMG! you r teh winz!!one!!eleven!\"",
+        )
+        expect(json_response["url"]).to eq(
+          "http://www.urbandictionary.com/define.php?term=zomg&defid=1401399",
+        )
+      end
+    end
 
-  it 'shows a long README as the homepage' do
-    get '/'
+    it "can wrap the response in a jsonp callback" do
+      VCR.use_cassette("define") do
+        get "/define/zomg?callback=functionA"
 
-    last_response.body.must_include 'UrbanScraper implements a simple API ' +
-                                    'for accessing <a href="http://urbandictionary.com/">Urban Dictionary</a>.'
-  end
-
-  it 'provides a method to define a term using json' do
-    get '/define/zomg'
-
-    last_response.body.must_match(/definition(\\"|")?:(\\"|")?zOMG is a varient/)
-  end
-
-  it 'provides a method to define a term using a jsonp callback' do
-    get '/define/zomg?callback=functionA'
-
-    last_response.body.must_match(/^functionA\({/)
+        expect(last_response.body).to start_with("functionA({")
+      end
+    end
   end
 end
-
