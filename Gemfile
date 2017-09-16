@@ -5,6 +5,7 @@ ruby '2.4.1'
 gem 'rake', '~> 10.0'
 gem 'sinatra', '~> 1.4'
 gem 'nokogiri', '~> 1.6'
+gem "sentry-raven"
 gem 'sinatra-jsonp', '~> 0.4'
 
 gem 'redcarpet', '~> 3.0'
