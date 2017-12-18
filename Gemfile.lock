@@ -11,11 +11,11 @@ GEM
       multipart-post (>= 1.2, < 3)
     hashdiff (0.3.4)
     method_source (0.8.2)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     posix-spawn (0.3.13)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -68,7 +68,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  nokogiri (~> 1.6)
+  nokogiri
   pry
   pygments.rb (~> 0.6)
   rack-test

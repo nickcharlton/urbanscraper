@@ -4,7 +4,7 @@ ruby "2.4.3"
 
 gem "rake"
 gem 'sinatra', '~> 1.4'
-gem 'nokogiri', '~> 1.6'
+gem "nokogiri"
 gem "sentry-raven"
 gem 'sinatra-jsonp', '~> 0.4'
 
