@@ -30,7 +30,7 @@ GEM
       rack
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
-    rake (10.5.0)
+    rake (12.3.0)
     redcarpet (3.4.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
@@ -72,7 +72,7 @@ DEPENDENCIES
   pry
   pygments.rb (~> 0.6)
   rack-test
-  rake (~> 10.0)
+  rake
   redcarpet (~> 3.0)
   rspec
   sentry-raven
