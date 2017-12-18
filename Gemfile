@@ -9,7 +9,7 @@ gem "sentry-raven"
 gem "sinatra-jsonp"
 
 gem "redcarpet"
-gem 'pygments.rb', '~> 0.6'
+gem "pygments.rb"
 
 group :development, :test do
   gem 'rack-test'

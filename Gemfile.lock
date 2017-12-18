@@ -16,15 +16,13 @@ GEM
     multipart-post (2.0.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
-    posix-spawn (0.3.13)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    pygments.rb (0.6.3)
-      posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.2.0)
+    pygments.rb (1.2.1)
+      multi_json (>= 1.0.0)
     rack (1.6.8)
     rack-protection (1.5.3)
       rack
@@ -62,7 +60,6 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
-    yajl-ruby (1.2.2)
 
 PLATFORMS
   ruby
@@ -70,7 +67,7 @@ PLATFORMS
 DEPENDENCIES
   nokogiri
   pry
-  pygments.rb (~> 0.6)
+  pygments.rb
   rack-test
   rake
   redcarpet
