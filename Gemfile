@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby "2.4.3"
 
 gem "rake"
-gem 'sinatra', '~> 1.4'
+gem "sinatra"
 gem "nokogiri"
 gem "sentry-raven"
 gem "sinatra-jsonp"
