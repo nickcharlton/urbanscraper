@@ -73,7 +73,7 @@ DEPENDENCIES
   pygments.rb (~> 0.6)
   rack-test
   rake
-  redcarpet (~> 3.0)
+  redcarpet
   rspec
   sentry-raven
   sinatra (~> 1.4)

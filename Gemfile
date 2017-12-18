@@ -8,7 +8,7 @@ gem "nokogiri"
 gem "sentry-raven"
 gem "sinatra-jsonp"
 
-gem 'redcarpet', '~> 3.0'
+gem "redcarpet"
 gem 'pygments.rb', '~> 0.6'
 
 group :development, :test do
