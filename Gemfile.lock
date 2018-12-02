@@ -15,7 +15,7 @@ GEM
     multi_json (1.12.2)
     multipart-post (2.0.0)
     mustermann (1.0.1)
-    nokogiri (1.8.1)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
