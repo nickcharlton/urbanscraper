@@ -1,12 +1,12 @@
 require 'nokogiri'
-require 'open-uri'
+require "faraday"
 require 'json'
 require 'date'
 
 class UrbanDictionary
   VERSION = '2.1'
   UA = "UrbanScraper/#{VERSION} (http://urbanscraper.herokuapp.com)"
-  DOMAIN = 'http://www.urbandictionary.com'
+  DOMAIN = "https://www.urbandictionary.com"
   URL = "#{DOMAIN}/define.php?term="
 
   def get_top_definition(term)
@@ -23,9 +23,17 @@ class UrbanDictionary
 
   private
 
+  def connection
+    connection = Faraday.new(url: DOMAIN)
+    connection.headers[:user_agent] = UA
+
+    connection
+  end
+
   def fetch_definitions(term)
     # pull it into nokogiri
-    doc = Nokogiri::HTML(open(URL + term, 'User-Agent' => UA))
+    response = connection.get("#{URL}#{term}")
+    doc = Nokogiri::HTML(response.body)
 
     # run the xpath
     doc.search("//div[@class='def-panel' and @data-defid]")
