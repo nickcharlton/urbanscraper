@@ -27,7 +27,7 @@ RSpec.describe "App" do
           "\"zOMG! you r teh winz!!one!!eleven!\"",
         )
         expect(json_response["url"]).to eq(
-          "http://www.urbandictionary.com/define.php?term=zomg&defid=1401399",
+          "https://www.urbandictionary.com/define.php?term=zomg&defid=1401399",
         )
       end
     end

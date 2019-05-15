@@ -65,6 +65,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  faraday
   nokogiri
   pry
   pygments.rb
@@ -82,4 +83,4 @@ RUBY VERSION
    ruby 2.4.3p205
 
 BUNDLED WITH
-   1.16.0
+   1.16.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.urbandictionary.com/define.php?term=thvbqgfbhkrvjv
+    uri: https://www.urbandictionary.com/define.php?term=thvbqgfbhkrvjv
     body:
       encoding: US-ASCII
       string: ''

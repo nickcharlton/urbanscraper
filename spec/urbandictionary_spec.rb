@@ -9,7 +9,7 @@ RSpec.describe UrbanDictionary do
         expect(definition[:id]).to eq("1401399")
         expect(definition[:term]).to eq("zomg")
         expect(definition[:url]).to eq(
-          "http://www.urbandictionary.com/define.php?term=zomg&defid=1401399",
+          "https://www.urbandictionary.com/define.php?term=zomg&defid=1401399",
         )
         expect(definition[:definition]).to start_with(
           "zOMG is a varient of the all-too-popular acronym",
@@ -19,7 +19,7 @@ RSpec.describe UrbanDictionary do
         )
         expect(definition[:author]).to eq("ectweak")
         expect(definition[:author_url]).to eq(
-          "http://www.urbandictionary.com/author.php?author=ectweak",
+          "https://www.urbandictionary.com/author.php?author=ectweak",
         )
         expect(definition[:posted]).to eq(DateTime.new(2005, 8, 6))
       end
