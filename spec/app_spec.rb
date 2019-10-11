@@ -39,5 +39,15 @@ RSpec.describe "App" do
         expect(last_response.body).to start_with("functionA({")
       end
     end
+
+    it "responds with an error message when a definition is not found" do
+      VCR.use_cassette("bad_definition_request") do
+        get "/define/thvbqgfbhkrvjv"
+
+        expect(json_response["message"]).to eq(
+          "No definitions could be found for: thvbqgfbhkrvjv",
+        )
+      end
+    end
   end
 end

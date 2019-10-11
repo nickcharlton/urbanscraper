@@ -20,6 +20,8 @@ ud = UrbanDictionary.new
 # custom error handling classes
 NoDefinition = Class.new(StandardError)
 
+set :show_exceptions, :after_handler
+
 #
 # Helpers
 #
