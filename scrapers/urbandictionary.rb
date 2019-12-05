@@ -36,7 +36,7 @@ class UrbanDictionary
     doc = Nokogiri::HTML(response.body)
 
     # run the xpath
-    doc.search("//div[@class='def-panel' and @data-defid]")
+    doc.search("//div[contains(@class, 'def-panel') and @data-defid]")
   end
 
   def parse_definition(term, definition)
