@@ -57,7 +57,7 @@ GEM
       multi_json (~> 1.8)
       sinatra (>= 1.0)
     tilt (2.0.10)
-    vcr (5.0.0)
+    vcr (5.1.0)
     webmock (3.8.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
