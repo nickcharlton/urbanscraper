@@ -1,5 +1,4 @@
 require 'sinatra'
-require "raven"
 require 'redcarpet'
 require 'pygments'
 require 'json'
@@ -9,8 +8,6 @@ require_relative 'helpers/markdown'
 require_relative 'helpers/time'
 require_relative 'helpers/response'
 require_relative 'scrapers/urbandictionary'
-
-use Raven::Rack
 
 #
 # UrbanDictionary Global

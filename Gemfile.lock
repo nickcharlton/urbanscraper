@@ -46,8 +46,6 @@ GEM
     rspec-support (3.9.0)
     ruby2_keywords (0.0.1)
     safe_yaml (1.0.5)
-    sentry-raven (3.0.0)
-      faraday (>= 1.0)
     sinatra (2.0.8.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -75,7 +73,6 @@ DEPENDENCIES
   rake
   redcarpet
   rspec
-  sentry-raven
   sinatra
   sinatra-jsonp
   vcr

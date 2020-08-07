@@ -7,7 +7,6 @@ gem "nokogiri"
 gem "pygments.rb"
 gem "rake"
 gem "redcarpet"
-gem "sentry-raven"
 gem "sinatra"
 gem "sinatra-jsonp"
 
