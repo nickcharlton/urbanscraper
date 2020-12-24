@@ -6,7 +6,7 @@ GEM
     coderay (1.1.2)
     crack (0.4.4)
     diff-lcs (1.4.4)
-    faraday (1.1.0)
+    faraday (1.2.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     hashdiff (1.0.1)
